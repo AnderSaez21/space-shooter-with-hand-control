@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://6whmww65p8xa"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_fc321"]
+[ext_resource type="PackedScene" uid="uid://dqnhu5tsdn2y7" path="res://prefabs/player.tscn" id="1_pknpp"]
+[ext_resource type="Script" path="res://scripts/input_manager.gd" id="2_288xo"]
+[ext_resource type="Theme" uid="uid://b0dx7q57b2vpw" path="res://new_theme.tres" id="4_e1q5v"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_fc321")
+
+[node name="player" parent="." node_paths=PackedStringArray("hand_input") instance=ExtResource("1_pknpp")]
+position = Vector2(66, 317)
+hand_input = NodePath("../InputManager")
+
+[node name="InputManager" type="Node" parent="."]
+script = ExtResource("2_288xo")
+
+[node name="meteor_timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="game_ui" type="Control" parent="."]
+custom_minimum_size = Vector2(1152, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_top = 2.0
+offset_right = 1151.0
+offset_bottom = 102.0
+theme = ExtResource("4_e1q5v")
+
+[node name="score_label" type="Label" parent="game_ui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 36.0
+grow_horizontal = 2
+text = "SCORE: 0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart_timer" type="Timer" parent="."]
+wait_time = 2.5
+
+[connection signal="player_killed" from="player" to="." method="_on_player_player_killed"]
+[connection signal="timeout" from="meteor_timer" to="." method="_on_meteor_timer_timeout"]
+[connection signal="timeout" from="restart_timer" to="." method="_on_restart_timer_timeout"]

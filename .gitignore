@@ -1,0 +1,17 @@
+# --- GODOT ---
+.godot/
+.import/
+export.cfg
+export_presets.cfg
+*.tmp
+
+# --- PYTHON ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# --- SISTEMA OPERATIVO ---
+.DS_Store
+Thumbs.db
