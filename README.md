@@ -23,4 +23,4 @@ The system consists of two independent parts communicating via **UDP**:
 ```bash
 cd Python_Controller
 pip install -r requirements.txt
-python hand_tracker.py
+python hand_detector.py
