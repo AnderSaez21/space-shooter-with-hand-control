@@ -1,3 +1,6 @@
+
+![shooter_video](https://github.com/user-attachments/assets/6b241767-084f-4e9b-9174-b9d797c07d4b)
+
 # Space Shooter with Gesture Control (Hand Tracking)
 
 A spaceship game developed in **Godot** controlled via computer vision using **Python** and **MediaPipe**. Move your hand in front of the webcam to pilot the spaceship.
